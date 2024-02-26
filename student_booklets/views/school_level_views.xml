@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="school_level_tree_view" model="ir.ui.view">
+            <field name="name">school.level.tree.view</field>
+            <field name="model">school.level</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="school_level_action" model="ir.actions.act_window">
+            <field name="name">Levels</field>
+            <field name="res_model">school.level</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

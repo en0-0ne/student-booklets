@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Booklets" id="booklet_menu_root"/>
+
+        <!-- menu categories -->
+        <menuitem name="Resources" sequence='1' id="resource_booklet_menu_root" parent="booklet_menu_root"/>
+        <menuitem name="Documents" sequence='5' id="document_booklet_menu_root" parent="booklet_menu_root"/>
+        <menuitem name="Exam" sequence='10' id="exam_booklet_menu_root" parent="booklet_menu_root"/>
+        <menuitem name="Configurations" sequence='15' id="configuration_booklet_menu_root" parent="booklet_menu_root"/>
+
+        <!-- actions -->
+        <menuitem
+            name="Student"
+            id="res_student_menu"
+            parent="resource_booklet_menu_root"
+            action="res_student_action"
+            sequence='1'
+        />
+        <menuitem
+            name="Professor"
+            id="res_professor_menu"
+            parent="resource_booklet_menu_root"
+            action="res_professor_action"
+            sequence='2'
+        />
+        <menuitem
+            name="Course"
+            id="res_course_menu"
+            parent="resource_booklet_menu_root"
+            action="res_course_action"
+            sequence='3'
+        />
+        <menuitem
+            name="Subscription"
+            id="student_subscription_menu"
+            parent="document_booklet_menu_root"
+            action="student_subscription_action"
+            sequence='1'
+        />
+        <menuitem
+            name="Level Unit"
+            id="level_unit_menu"
+            parent="exam_booklet_menu_root"
+            action="level_unit_action"
+            sequence='1'
+        />
+        <menuitem
+            name="Mark"
+            id="student_mark_menu"
+            parent="exam_booklet_menu_root"
+            action="student_mark_action"
+            sequence='2'
+        />
+        <menuitem
+            name="Result"
+            id="student_result_menu"
+            parent="exam_booklet_menu_root"
+            action="student_result_action"
+            sequence='3'
+        />
+        <menuitem
+            name="Level"
+            id="school_level_menu"
+            parent="configuration_booklet_menu_root"
+            action="school_level_action"
+            sequence='1'
+        />
+        <menuitem
+            name="Program"
+            id="school_program_menu"
+            parent="configuration_booklet_menu_root"
+            action="school_program_action"
+            sequence='2'
+        />
+
+    </data>
+</odoo>

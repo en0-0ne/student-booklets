@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_professor_list_view">
+            <field name="name">res.professor.list.view</field>
+            <field name="model">res.professor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="registration_number"/>
+                    <field name="name"/>
+                    <field name="grade"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_professor_form_view">
+            <field name="name">res.professor.form.view</field>
+            <field name="model">res.professor</field>
+            <field name="arch" type="xml">
+                <form string="professor" class='o_professor_form'>
+                    <header>
+                    </header>
+                    <sheet>
+                        <!--<div name="expense_button_box" class="oe_button_box">
+                            <button
+                                name="action_to_subscription_history"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-archive"
+                            >
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Subscriptions</span>
+                                </div>
+                            </button>
+                        </div>-->
+                        <!--<widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>-->
+                        <div class="o_professor_avatar">
+                            <field name="image_1920" widget='image' class="oe_avatar m-0" options='{"zoom": true}'/>
+                        </div>
+                        <div class="oe_title mb-3">
+                            <field name="name" placeholder="Professor's Name" required="True" style="font-size: min(4vw, 2.6rem);"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="registration_number"/>
+                                <field name="grade"/>
+                                <field name="partner_id" readonly="1" string="Related partner" required="0" invisible="not id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="res_professor_action">
+            <field name="name">Professors</field>
+            <field name="res_model">res.professor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="./apps/professor_booklets.action_server">
+              <field name="name">./apps/professor_booklets server</field>
+              <field name="model_id" ref="model_./apps/professor_booklets_./apps/professor_booklets"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+    </data>
+</odoo>

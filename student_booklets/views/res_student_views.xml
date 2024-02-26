@@ -1,0 +1,111 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_student_list_view">
+            <field name="name">res.student.list.view</field>
+            <field name="model">res.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="registration_number"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="level_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_student_form_view">
+            <field name="name">res.student.form.view</field>
+            <field name="model">res.student</field>
+            <field name="arch" type="xml">
+                <form string="Student" class='o_student_form'>
+                    <header>
+                    </header>
+                    <sheet>
+                        <div name="expense_button_box" class="oe_button_box">
+                            <button
+                                name="action_to_subscription_history"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-archive"
+                            >
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Subscriptions</span>
+                                </div>
+                            </button>
+                        </div>
+                        <!--<widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>-->
+                        <div class="o_student_avatar">
+                            <field name="image_1920" widget='image' class="oe_avatar m-0" options='{"zoom": true}'/>
+                        </div>
+                        <div class="oe_title mb-3">
+                            <field name="name" placeholder="Student's Name" required="True" style="font-size: min(4vw, 2.6rem);"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="registration_number"/>
+                                <field name="subscription_number"/>
+                                <field name="partner_id" readonly="1" string="Related partner"  required="0" invisible="not id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="cursus" string="Cursus">
+                                <group>
+                                    <group>
+                                        <field name="subscription_id"/>
+                                        <field name="subscription_ok"/>
+                                        <field name="level_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="year_from"/>
+                                        <field name="year_to"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="info" string="Informations">
+                                <group>
+                                    <group>
+                                        <field name="email"/>
+                                        <field name="phone"/>
+                                        <field name="birthday"/>
+                                        <field name="birthplace"/>
+                                        <field name="age"/>
+                                    </group>
+                                    <group>
+                                        <field name="cin"/>
+                                        <field name="cin_issue_date"/>
+                                        <field name="cin_issue_place"/>
+                                        <field name="father_name"/>
+                                        <field name="mother_name"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="res_student_action">
+            <field name="name">Students</field>
+            <field name="res_model">res.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="./apps/student_booklets.action_server">
+              <field name="name">./apps/student_booklets server</field>
+              <field name="model_id" ref="model_./apps/student_booklets_./apps/student_booklets"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_course_tree_view" model="ir.ui.view">
+            <field name="name">res.course.tree.view</field>
+            <field name="model">res.course</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="professor_ids" widget="many2many_tags"/>
+                    <field name="level_unit_id"/>
+                    <field name="level_id"/>
+                    <field name="coefficient"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_course_action" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">res.course</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>
