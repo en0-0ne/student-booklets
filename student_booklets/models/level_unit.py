@@ -16,6 +16,5 @@ class LevelUnit(models.Model):
         string='Level',
         required=True
     )
-    credit = fields.Float('Credit')
     is_valid = fields.Boolean('Validity')
     average = fields.Float('Average')

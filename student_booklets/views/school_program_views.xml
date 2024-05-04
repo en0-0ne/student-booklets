@@ -16,10 +16,12 @@
                         </div>
                         <group>
                             <group>
+                                <field name="acronym" required="1"/>
                                 <field name="parent_id"/>
                             </group>
                             <group>
                                 <field name="child_ids" widget="many2many_tags"/>
+                                <field name="course_ids" widget="many2many_tags"/>
                             </group>
                         </group>
                     </sheet>
@@ -32,6 +34,7 @@
             <field name="model">school.program</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="acronym"/>
                     <field name="name"/>
                     <field name="parent_id"/>
                 </tree>

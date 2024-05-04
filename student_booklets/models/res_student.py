@@ -46,6 +46,7 @@ class ResStudent(models.Model):
         # store=True
     )
     subscription_ok = fields.Boolean(compute='compute_subscription_status', default=False)
+
     year_from = fields.Selection(
         string='Year from',
         related='subscription_id.year_from'
@@ -58,6 +59,11 @@ class ResStudent(models.Model):
         comodel_name='school.level',
         string='Level',
         related='subscription_id.level_id'
+    )
+    program_id = fields.Many2one(
+        comodel_name='school.program',
+        string='Program',
+        related='subscription_id.program_id'
     )
 
     def _search_subscription(self, operator, value):

@@ -11,6 +11,8 @@
                     <field name="professor_ids" widget="many2many_tags"/>
                     <field name="level_unit_id"/>
                     <field name="level_id"/>
+                    <field name="program_ids" widget="many2many_tags"/>
+                    <field name="credit"/>
                     <field name="coefficient"/>
                 </tree>
             </field>

@@ -18,4 +18,10 @@ class ResCourse(models.Model):
         comodel_name='school.level',
         related='level_unit_id.level_id'
     )
-    coefficient = fields.Integer('Coefficient')
+    program_ids = fields.Many2many(
+        comodel_name='school.program',
+        string='Programs',
+        domain="[('child_ids', '=', False)]"
+    )
+    credit = fields.Integer('Credit')
+    coefficient = fields.Float('Coefficient')

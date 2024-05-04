@@ -4,8 +4,10 @@ from odoo import fields, models, api, _
 class SchoolProgram(models.Model):
     _name = 'school.program'
     _description = 'School Program'
+    _rec_name = 'acronym'
 
     name = fields.Char(required=True)
+    acronym = fields.Char(string='Acronym', required=True)
     parent_id = fields.Many2one(
         'school.program',
         'Parent program',
@@ -18,7 +20,12 @@ class SchoolProgram(models.Model):
         'parent_id',
         'Child Programs'
     )
+
     # TODO : Add course object here
+    course_ids = fields.Many2many(
+        comodel_name='res.course',
+        string='Courses'
+    )
 
     @api.constrains('parent_id')
     def _check_hierarchy(self):

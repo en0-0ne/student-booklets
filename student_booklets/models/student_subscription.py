@@ -54,6 +54,12 @@ class StudentSubscription(models.Model):
         required=True,
         default='draft'
     )
+    
+    program_id = fields.Many2one(
+        comodel_name='school.program',
+        string='Program',
+        domain="[('child_ids', '=', False)]"
+    )
 
     def _get_years(self):
         return [(str(i), i) for i in range(fields.Date.today().year - 5, fields.Date.today().year + 6)]
