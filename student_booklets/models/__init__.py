@@ -9,3 +9,4 @@ from . import student_result
 from . import student_subscription
 from . import school_level
 from . import school_program
+from . import course_schedule

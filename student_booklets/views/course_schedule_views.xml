@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="course_schedule_view_tree" model="ir.ui.view">
+            <field name="name">course.schedule.view.tree</field>
+            <field name="model">course.schedule</field>
+            <field name="arch" type="xml">
+                <tree string="course_schedule_tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="professor_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="duration"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="course_schedule_view_form" model="ir.ui.view">
+            <field name="name">course.schedule.view.form</field>
+            <field name="model">course.schedule</field>
+            <field name="arch" type="xml">
+                <form string="course_schedule_form">
+                    <field name="state" widget="statusbar" statusbar_visible="incoming,done"/>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="course_id"/>
+                                <field name="professor_id"/>
+                            </group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                                <field name="duration"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="course_schedule_view_calendar" model="ir.ui.view">
+            <field name="name">course.schedule.view.calendar</field>
+            <field name="model">course.schedule</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date_from" date_stop="date_to" mode="month" color="course_id" quick_create="1">
+                    <field name="course_id"/>
+                    <field name="professor_id"/>
+<!--                    <field name="employee_id" filters="1" invisible="1"/>-->
+<!--                    <field name="department_id" invisible="1"/>-->
+<!--                    <field name="appraisal_properties"/>-->
+                </calendar>
+            </field>
+        </record>
+
+        <record id="course_schedule_action" model="ir.actions.act_window">
+            <field name="name">Schedule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">course.schedule</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+    </data>
+</odoo>

@@ -48,18 +48,25 @@
             sequence='1'
         />
         <menuitem
+            name="Schedule"
+            id="course_schedule_menu"
+            parent="exam_booklet_menu_root"
+            action="course_schedule_action"
+            sequence='2'
+        />
+        <menuitem
             name="Mark"
             id="student_mark_menu"
             parent="exam_booklet_menu_root"
             action="student_mark_action"
-            sequence='2'
+            sequence='3'
         />
         <menuitem
             name="Result"
             id="student_result_menu"
             parent="exam_booklet_menu_root"
             action="student_result_action"
-            sequence='3'
+            sequence='4'
         />
         <menuitem
             name="Level"

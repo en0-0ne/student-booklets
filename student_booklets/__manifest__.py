@@ -22,6 +22,7 @@
         # data
         'data/ir_sequence.xml',
         # views
+        'views/course_schedule_views.xml',
         'views/res_student_views.xml',
         'views/res_professor_views.xml',
         'views/res_course_views.xml',
