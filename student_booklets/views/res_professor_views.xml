@@ -21,18 +21,13 @@
                     <header>
                     </header>
                     <sheet>
-                        <!--<div name="expense_button_box" class="oe_button_box">
-                            <button
-                                name="action_to_subscription_history"
-                                type="object"
-                                class="oe_stat_button"
-                                icon="fa-archive"
-                            >
-                                <div class="o_field_widget o_stat_info">
-                                    <span class="o_stat_text">Subscriptions</span>
-                                </div>
-                            </button>
-                        </div>-->
+                        <div class="oe_button_box" name="button_box">
+                            <div name="expense_button_box" class="oe_button_box">
+                                <button type="object" name="action_view_courses" class="oe_stat_button" icon="fa-book">
+                                    <field name="course_count" widget="statinfo" string="Courses"/>
+                                </button>
+                            </div>
+                        </div>
                         <!--<widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>-->
                         <div class="o_professor_avatar">
                             <field name="image_1920" widget='image' class="oe_avatar m-0" options='{"zoom": true}'/>

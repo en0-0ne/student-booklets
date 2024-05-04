@@ -5,10 +5,11 @@ class ResCourse(models.Model):
     _name = 'res.course'
     _description = 'Course'
 
-    name = fields.Char('Name')
-    professor_ids = fields.Many2many(
+    name = fields.Char('Name', required=True)
+    professor_id = fields.Many2one(
         comodel_name='res.professor',
-        string='Professors'
+        string='Professors',
+        required=True,
     )
     level_unit_id = fields.Many2one(
         comodel_name='level.unit',
