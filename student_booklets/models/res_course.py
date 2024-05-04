@@ -8,7 +8,7 @@ class ResCourse(models.Model):
     name = fields.Char('Name', required=True)
     professor_id = fields.Many2one(
         comodel_name='res.professor',
-        string='Professors',
+        string='Professor',
         required=True,
     )
     level_unit_id = fields.Many2one(

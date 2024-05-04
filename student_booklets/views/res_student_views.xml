@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="phone"/>
                     <field name="level_id"/>
+                    <field name="program_id"/>
                 </tree>
             </field>
         </record>
@@ -22,17 +23,31 @@
                     <header>
                     </header>
                     <sheet>
-                        <div name="expense_button_box" class="oe_button_box">
-                            <button
-                                name="action_to_subscription_history"
-                                type="object"
-                                class="oe_stat_button"
-                                icon="fa-archive"
-                            >
-                                <div class="o_field_widget o_stat_info">
-                                    <span class="o_stat_text">Subscriptions</span>
-                                </div>
-                            </button>
+                        <div class="oe_button_box" name="button_box">
+                            <div name="subscription_button_box" class="oe_button_box">
+                                <button
+                                        name="action_to_subscription_history"
+                                        type="object"
+                                        class="oe_stat_button"
+                                        icon="fa-archive"
+                                >
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_text">Subscriptions</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div name="mark_button_box" class="oe_button_box">
+                                <button
+                                        name="action_view_mark"
+                                        type="object"
+                                        class="oe_stat_button"
+                                        icon="fa-check-square-o"
+                                >
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_text">My Results</span>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                         <!--<widget name="web_ribbon" title="Archived" bg_color="bg-danger"/>-->
                         <div class="o_student_avatar">
@@ -55,6 +70,7 @@
                                         <field name="subscription_id"/>
                                         <field name="subscription_ok"/>
                                         <field name="level_id"/>
+                                        <field name="program_id"/>
                                     </group>
                                     <group>
                                         <field name="year_from"/>

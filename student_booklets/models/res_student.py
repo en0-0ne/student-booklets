@@ -45,7 +45,7 @@ class ResStudent(models.Model):
         # search='_search_subscription',
         # store=True
     )
-    subscription_ok = fields.Boolean(compute='compute_subscription_status', default=False)
+    subscription_ok = fields.Boolean(compute='_compute_subscription_status', default=False)
 
     year_from = fields.Selection(
         string='Year from',
@@ -66,6 +66,12 @@ class ResStudent(models.Model):
         related='subscription_id.program_id'
     )
 
+    mark_ids = fields.One2many(
+        comodel_name='student.mark',
+        inverse_name='student_id',
+        string='Marks'
+    )
+
     def _search_subscription(self, operator, value):
         if operator == 'like':
             operator = 'ilike'
@@ -83,6 +89,17 @@ class ResStudent(models.Model):
             'target': 'current',
         }
 
+    def action_view_mark(self):
+        return {
+            'name': _('Marks of %s') % self.name,
+            'view_type': 'tree',
+            'view_mode': 'tree,form',
+            'res_model': 'student.mark',
+            'type': 'ir.actions.act_window',
+            'domain': [('student_id', '=', self.id), ('level_id', '=', self.level_id.id)],
+            'target': 'current',
+        }
+
     # @api.depends('subscription_ids')
     # def get_active_subscription(self):
     #     for record in self:
@@ -92,7 +109,7 @@ class ResStudent(models.Model):
     #         record.subscription_id = current_subscription
 
     @api.depends('subscription_id')
-    def compute_subscription_status(self):
+    def _compute_subscription_status(self):
         for record in self:
             record.subscription_ok = True if record.subscription_id and record.subscription_id.state == 'valid' else False
 
