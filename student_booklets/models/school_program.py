@@ -21,12 +21,6 @@ class SchoolProgram(models.Model):
         'Child Programs'
     )
 
-    # TODO : Add course object here
-    course_ids = fields.Many2many(
-        comodel_name='res.course',
-        string='Courses'
-    )
-
     @api.constrains('parent_id')
     def _check_hierarchy(self):
         if not self._check_recursion():
